@@ -1,8 +1,11 @@
-# Filename: Dockerfile 
-FROM node:10-alpine
-WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
+FROM node:16.3.0
+
+WORKDIR /app
+
 COPY . .
+
 EXPOSE 3000
-CMD ["npm", "start"]
+
+RUN npm install
+
+CMD ["node", "app.js"]
